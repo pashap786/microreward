@@ -7,9 +7,20 @@ import java.awt.event.KeyEvent;
 
 public class MrRoboto {
 
+    public static void clickez() {
+        try {
+            Robot robot = new Robot();
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            Thread.sleep(200);
+            // Simulate a left mouse button release
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        }   catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void typeQuery(Robot robot, String query) throws InterruptedException {
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-
         // Simulate a left mouse button release
         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         // Clear the input box first
