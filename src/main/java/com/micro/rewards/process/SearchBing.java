@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.util.Random;
 
@@ -30,9 +31,7 @@ public class SearchBing {
     private void searchBing() throws Exception {
         queryService.getBingQuiz();
         for (int x = 15; x > 0; x--) {
-
             long randomSleep = random.nextLong(1500, 20000);
-
             log.info("Query try # {} Delay {}", x, randomSleep);
 
             inNewWindow(randomSleep, queryService.getQuery());
