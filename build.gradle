@@ -30,6 +30,7 @@ dependencies {
 	implementation ('com.github.javafaker:javafaker:1.0.2')  {
 		exclude group: 'org.yaml', module: 'snakeyaml'
 	}
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -37,6 +38,7 @@ dependencies {
 }
 
 bootJar {
+	mainClass = 'com.micro.rewards.RewardsApplication'
 	archiveBaseName = 'rewards'
 	launchScript()
 }

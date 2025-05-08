@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.IOException;
 import java.util.Random;
@@ -21,8 +22,11 @@ public class SearchBing {
     @PostConstruct
     public void runAfterStart() {
         try {
+            log.info("Desktop supported {}", Desktop.isDesktopSupported());
+
             searchBing();
         } catch (Exception e) {
+            e.printStackTrace();
             log.error("Error {}", e.getMessage());
         }
     }
