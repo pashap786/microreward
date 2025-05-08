@@ -30,7 +30,7 @@ public class SearchBing {
     Random random = new Random();
     private void searchBing() throws Exception {
         queryService.getBingQuiz();
-        for (int x = 15; x > 0; x--) {
+        for (int x = 20; x > 0; x--) {
             long randomSleep = random.nextLong(1500, 20000);
             log.info("Query try # {} Delay {}", x, randomSleep);
 

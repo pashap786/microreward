@@ -1,5 +1,7 @@
 package com.micro.rewards.service;
 
+import com.micro.rewards.lookups.Places;
+import com.micro.rewards.util.FormQuestion;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,8 @@ public class QueryService {
     private Random random = new Random();
 
     public String getQuery() {
-        int x = random.nextInt(0, 2);
+        int x = random.nextInt(0, 3);
+        log.info("CHOOSING QUERY TYPE {}", x);
         String query = "";
         if (x == 0) {
             query = fakerService.getAnAnimal();
@@ -30,6 +33,8 @@ public class QueryService {
             query = fakerService.getAName();
         } else if (x == 2) {
             query = fakerService.getAddress();
+        } else if (x == 3) {
+            query = FormQuestion.getQuestion(Places.getPlace());
         } else {
             query = fakerService.getWeird();
         }
